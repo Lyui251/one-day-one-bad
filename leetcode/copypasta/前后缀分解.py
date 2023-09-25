@@ -7,6 +7,7 @@
 
 # 除 nums[i] 之外的其余元素的乘积, 可分为两部分 pre, sur;
 # pre[i] 表示从 0 ~ i - 1 的元素乘积, sur[i] 表示从 i + 1 ~ n - 1 的元素乘积
+"""
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
 
@@ -41,7 +42,7 @@ class Solution:
             ans[i] = pre[i] * sur[i]
         # print(pre, sur)
         return ans
-"""
+        
 
 """
 2256. 最小平均差
