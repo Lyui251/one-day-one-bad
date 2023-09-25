@@ -3,10 +3,13 @@
 """
 
 """
-238. 除自身以外数组的乘积: [https://leetcode.cn/problems/product-of-array-except-self/]
+238. 除自身以外数组的乘积:  [https://leetcode.cn/problems/product-of-array-except-self/]
+2256. 最小平均差:          [https://leetcode.cn/problems/minimum-average-difference/]
+2483. 商店的最少代价:      [https://leetcode.cn/problems/minimum-penalty-for-a-shop/]
+
 
 # 除 nums[i] 之外的其余元素的乘积, 可分为两部分 pre, sur;
-# pre[i] 表示从 0 ~ i - 1 的元素乘积, sur[i] 表示从 i + 1 ~ n - 1 的元素乘积
+# pre[i] 表示从 0 ~ i - 1 的元素处理后的数, sur[i] 表示从 i + 1 ~ n - 1 的元素处理后的数
 """
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
@@ -44,13 +47,9 @@ class Solution:
         return ans
         
 
-"""
-2256. 最小平均差
-"""
 
-"""
-2483. 商店的最少代价
-"""
+
+
 
 """
 2420. 找到所有好下标
