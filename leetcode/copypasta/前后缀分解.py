@@ -3,9 +3,12 @@
 """
 
 """
+前后缀分解:
+
 238. 除自身以外数组的乘积:  [https://leetcode.cn/problems/product-of-array-except-self/]
 2256. 最小平均差:          [https://leetcode.cn/problems/minimum-average-difference/]
-2483. 商店的最少代价:      [https://leetcode.cn/problems/minimum-penalty-for-a-shop/]
+2483. 商店的最少代价:       [https://leetcode.cn/problems/minimum-penalty-for-a-shop/]
+2420. 找到所有好下标:       [https://leetcode.cn/problems/find-all-good-indices/]
 
 
 # 除 nums[i] 之外的其余元素的乘积, 可分为两部分 pre, sur;
@@ -51,12 +54,11 @@ class Solution:
 
 
 
-"""
-2420. 找到所有好下标
-"""
 
 """
-2167. 移除所有载有违禁货物车厢所需的最少时间
+前后缀分解 + dp:
+
+2167. 移除所有载有违禁货物车厢所需的最少时间:    [https://leetcode.cn/problems/minimum-time-to-remove-all-cars-containing-illegal-goods/]
 """
 
 """
