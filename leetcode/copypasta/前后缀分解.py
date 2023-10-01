@@ -14,6 +14,8 @@
 # 除 nums[i] 之外的其余元素的乘积, 可分为两部分 pre, sur;
 # pre[i] 表示从 0 ~ i - 1 的元素处理后的数, sur[i] 表示从 i + 1 ~ n - 1 的元素处理后的数
 """
+
+
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
 
@@ -25,34 +27,28 @@ class Solution:
             ans[i] = ans[i - 1] * nums[i - 1]
 
         R = nums[-1]
-        for i in range(n-2, -1, -1):
+        for i in range(n - 2, -1, -1):
             ans[i] *= R
             R *= nums[i]
-        
-        return ans
 
+        return ans
 
         # 时间 O(n)
         # 空间 O(n)
         n = len(nums)
         pre = [1] * n
         for i in range(1, n):
-            pre[i] = pre[i-1] * nums[i-1]
-        
+            pre[i] = pre[i - 1] * nums[i - 1]
+
         sur = [1] * n
-        for i in range(n-2, -1, -1):
+        for i in range(n - 2, -1, -1):
             sur[i] = sur[i + 1] * nums[i + 1]
-        
+
         ans = [0] * n
         for i in range(n):
             ans[i] = pre[i] * sur[i]
         # print(pre, sur)
         return ans
-        
-
-
-
-
 
 
 """
