@@ -1,4 +1,5 @@
 # 8039. 使数组成为递增数组的最少右移次数  ( https://leetcode.cn/problems/minimum-right-shifts-to-sort-the-array/ )
+
 """
 O(n)
 根据题意数组至多两段递增数组, 且nums[0] > nums[-1]
