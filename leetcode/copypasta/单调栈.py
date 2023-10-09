@@ -1,4 +1,32 @@
-# LC 2454. 下一个更大元素 IV:  https://leetcode.cn/problems/next-greater-element-iv/description/ 2175
+# LC 456. 132 模式:   https://leetcode.cn/problems/132-pattern/description/   中等
+"""
+132 模式的子序列 由三个整数 nums[i]、nums[j] 和 nums[k] 组成，并同时满足：i < j < k 和 nums[i] < nums[k] < nums[j] 。
+
+可以通过 枚举 i, j, k 来寻找答案, 不过 枚举 i 更为简单.
+
+倒序枚举 nums[i], 用(递减)单调栈 st 记录元素, 如果 nums[i] 比 st[-1] 大, 那么弹出 st[-1].
+此时 就找到了 nums[j](对应 nums[i]), nums[k](对应弹出的 st[-1]).
+为了更容易找到 nums[i], 应该保证 nums[k] 尽可能大,
+因此需要 k 记录栈 st 弹出最大的元素(可以保证从栈中弹出的元素都是符合题意得 nums[k])
+
+当 nums[i] < k 时, 说明找到了 132 模式得子序列
+"""
+class Solution:
+    def find132pattern(self, nums: List[int]) -> bool:
+        st = []
+        n = len(nums)
+
+        k = -inf
+        for i in range(n - 1, -1, -1):
+            if nums[i] < k:
+                return True
+            while st and nums[i] > st[-1]:
+                k = max(k, st.pop())
+            st.append(nums[i])
+
+        return False
+
+# LC 2454. 下一个更大元素 IV:  https://leetcode.cn/problems/next-greater-element-iv/description/ 困难(2175)
 """
 从左向右遍历 nums, 用(递减)单调栈 s 记录元素, 如果 x=nums[i] 比 s 的栈顶大,
 则 x 是栈顶的下个更大元素, 弹出栈顶. 最后把 x 入栈(实际入栈的是下标 i)
@@ -31,7 +59,7 @@ class Solution:
         return ans
 
 
-# LC 2334. 元素值大于变化阈值的子数组:  https://leetcode.cn/problems/subarray-with-elements-greater-than-varying-threshold/ 2381
+# LC 2334. 元素值大于变化阈值的子数组:  https://leetcode.cn/problems/subarray-with-elements-greater-than-varying-threshold/ 困难(2381)
 """
 提示 1
 枚举每个元素，假设它是子数组中的最小值。
