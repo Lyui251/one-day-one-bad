@@ -26,6 +26,43 @@ class Solution:
 
         return False
 
+
+# LC 1124. 表现良好的最长时间段: https://leetcode.cn/problems/longest-well-performing-interval/description/
+"""
+「劳累天数大于不劳累天数」等价于「劳累天数减去不劳累天数大于 0」。
+
+那么把劳累的一天视作 nums[i]=1，不劳累的一天视作 nums[i]=−1，则问题变为：
+
+计算 nums 的最长子数组，其元素和大于 0。
+既然说到了「子数组的元素和」，那么利用前缀和 s，将问题变为：
+
+找到两个下标 i 和 j，满足 j<i 且 s[j]<s[i]，最大化 i−j 的值。
+
+想一想，哪些值可以作为 j（最长子数组的左端点）呢？
+-> 一个 底大顶小 的(递减)单调栈
+
+同时要使数组尽可能长, 因此可以倒序遍历 i, 每当 s[i] > s[j] 时, 更新答案并出栈
+"""
+from itertools import accumulate
+class Solution:
+    def longestWPI(self, hours: List[int]) -> int:
+        nums = [1 if h > 8 else -1 for h in hours]
+        s = list(accumulate(nums, initial=0))
+        st = [0]
+        for i, x in enumerate(s):
+            if st and x < s[st[-1]]:
+                st.append(i)
+
+        ans = 0
+        for i in range(len(s)-1, -1, -1):
+            while st and s[i] > s[st[-1]]:
+                ans = max(ans, i - st.pop())
+            else:
+                if not st:
+                    break
+        return ans
+
+
 # LC 2454. 下一个更大元素 IV:  https://leetcode.cn/problems/next-greater-element-iv/description/ 困难(2175)
 """
 从左向右遍历 nums, 用(递减)单调栈 s 记录元素, 如果 x=nums[i] 比 s 的栈顶大,
