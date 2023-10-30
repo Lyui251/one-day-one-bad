@@ -1,3 +1,5 @@
+# https://leetcode.cn/problems/minimum-increment-operations-to-make-array-beautiful/
+
 class Solution:
     def minIncrementOperations(self, nums: List[int], k: int) -> int:
         n = len(nums)
