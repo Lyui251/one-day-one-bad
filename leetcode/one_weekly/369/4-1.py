@@ -1,3 +1,5 @@
+# https://leetcode.cn/problems/maximum-points-after-collecting-coins-from-all-nodes/
+
 """
 1. 自顶向下
 floor(x / 2) 是对 x 进行 向下取整除 2, 因此可以看成 右移操作
